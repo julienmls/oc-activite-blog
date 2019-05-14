@@ -1,0 +1,18 @@
+<!-- Application des classes success ou danger en fonction du nombre de "love" -->
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': post.loveIts > 0,
+                'list-group-item-danger': post.loveIts < 0}">
+
+  <!-- Titre et date du post -->
+  <h3>{{ post.title }}
+    <small style="float: right;">{{ post.created_at | date: 'short' }}</small>
+  </h3>
+
+  <!-- Contenu du post -->
+  <p>{{ post.content }}</p>
+
+  <button class="btn btn-success btn-sm" (click)="onLoveIt(true)">Love it!</button>
+  &nbsp; <!-- Ajout d'un espace entre les deux boutons -->
+  <button class="btn btn-danger btn-sm" (click)="onLoveIt(false)">Don't love it!</button>
+
+</li>
